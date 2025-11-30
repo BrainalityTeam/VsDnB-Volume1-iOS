@@ -1,9 +1,11 @@
-package mobile;
+/// yes this is the class util you are looking for android porters
+
+package util;
 
 #if android
-import android.content.Context;
-import android.widget.Toast;
-import android.os.Environment;
+import extension.androidtools.content.Context;
+import extension.androidtools.widget.Toast;
+import extension.androidtools.os.Environment;
 #end
 import haxe.CallStack;
 import haxe.io.Path;
@@ -37,6 +39,7 @@ class SUtil
 {
 	/**
 	 * This returns the external storage path that the game will use by the type.
+	 * @param type The type of storage directory to get.
 	 */
 	public static function getStorageDirectory(type:StorageType = MEDIA):String
 	{

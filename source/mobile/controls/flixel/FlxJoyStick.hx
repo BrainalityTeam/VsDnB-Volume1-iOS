@@ -1,4 +1,4 @@
-package mobile.flixel;
+package mobile.controls.flixel;
 
 import flixel.FlxG;
 import flixel.FlxSprite;

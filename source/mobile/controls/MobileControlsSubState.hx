@@ -10,9 +10,9 @@ import flixel.input.touch.FlxTouch;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxSave;
-import mobile.flixel.FlxButton;
-import mobile.flixel.FlxHitbox;
-import mobile.flixel.FlxVirtualPad;
+import mobile.controls.flixel.FlxButton;
+import mobile.controls.flixel.FlxHitbox;
+import mobile.controls.flixel.FlxVirtualPad;
 import openfl.utils.Assets;
 
 class MobileControlsSubState extends FlxSubState

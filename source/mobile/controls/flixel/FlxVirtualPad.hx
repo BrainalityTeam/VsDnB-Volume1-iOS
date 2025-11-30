@@ -1,4 +1,4 @@
-package mobile.flixel;
+package mobile.controls.flixel;
 
 import flixel.FlxG;
 import flixel.graphics.FlxGraphic;
@@ -7,7 +7,7 @@ import flixel.graphics.frames.FlxTileFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxPoint;
 import flixel.util.FlxDestroyUtil;
-import mobile.flixel.FlxButton;
+import mobile.controls.flixel.FlxButton;
 import openfl.display.BitmapData;
 import openfl.utils.Assets;
 

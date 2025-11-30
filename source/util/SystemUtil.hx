@@ -72,7 +72,11 @@ class SystemUtil
 		#if desktop
 		var path = SystemUtil.getTempPath() + "/" + fileName + ".txt";
 
+		#if desktop
 		File.saveContent(path, fileContent);
+		#else
+		SUtil.saveContent(path, fileContent);
+		#end
 		
         FileUtil.openFile(path);
 		#end

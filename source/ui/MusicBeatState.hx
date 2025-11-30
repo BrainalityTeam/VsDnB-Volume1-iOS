@@ -10,8 +10,8 @@ import scripting.events.ScriptEvent;
 import scripting.module.ModuleHandler;
 import util.SortUtil;
 #if mobileC
-import mobile.MobileControls;
-import mobile.flixel.FlxVirtualPad;
+import mobile.controls.MobileControls;
+import mobile.controls.flixel.FlxVirtualPad;
 import flixel.FlxCamera;
 import flixel.input.actions.FlxActionInput;
 import flixel.util.FlxDestroyUtil;
@@ -133,28 +133,6 @@ class MusicBeatState extends ScriptEventDispatchState
 	}
 	#end
 
-	override function destroy():Void
-	{
-		#if mobileC
-		if (trackedInputsMobileControls.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsMobileControls);
-
-		if (trackedInputsVirtualPad.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
-		#end
-
-		super.destroy();
-
-		#if mobileC
-		if (virtualPad != null)
-			virtualPad = FlxDestroyUtil.destroy(virtualPad);
-
-		if (mobileControls != null)
-			mobileControls = FlxDestroyUtil.destroy(mobileControls);
-		#end
-	}
-
-
 	override function create()
 	{
 		addSignals();
@@ -173,7 +151,23 @@ class MusicBeatState extends ScriptEventDispatchState
 	{
 		removeSignals();
 
+		#if mobileC
+		if (trackedInputsMobileControls.length > 0)
+			controls.removeVirtualControlsInput(trackedInputsMobileControls);
+
+		if (trackedInputsVirtualPad.length > 0)
+			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
+		#end
+
 		super.destroy();
+
+		#if mobileC
+		if (virtualPad != null)
+			virtualPad = FlxDestroyUtil.destroy(virtualPad);
+
+		if (mobileControls != null)
+			mobileControls = FlxDestroyUtil.destroy(mobileControls);
+		#end
 	}
 
 	/**

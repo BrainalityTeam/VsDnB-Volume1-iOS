@@ -65,7 +65,9 @@ import util.FileUtil;
 import util.MathUtil;
 import util.TweenUtil;
 import util.tools.Preloader;
+#if desktop
 import api.Discord.DiscordClient;
+#end
 
 /**
  * The parameters used to initalize PlayState.
@@ -931,7 +933,9 @@ class PlayState extends MusicBeatState
 				currentDialogue.pauseMusic();
 			}
 
+			#if desktop
 			changePresence(PAUSED);
+			#end
 
 			if (Countdown.countdownStarted && !Countdown.finished)
 				Countdown.paused = true;
@@ -968,7 +972,9 @@ class PlayState extends MusicBeatState
 			});
 			paused = false;
 
+			#if desktop
 			changePresence(NORMAL(true, false));
+			#end
 		}
 
 		super.closeSubState();
@@ -1667,7 +1673,9 @@ class PlayState extends MusicBeatState
 			SoundController.playMusic(currentChart.getInstrumentalPath(), 1, false);
 			vocals.play();
 		}
+		#if desktop
 		changePresence(NORMAL(true, false));
+		#end
 
 		SoundController.music.onComplete = endSong;
 	}
@@ -1984,7 +1992,9 @@ class PlayState extends MusicBeatState
 		
 		Conductor.instance.update();
 
+		#if desktop
 		changePresence(NORMAL(true, false));
+		#end
 	}
 
 	/**
@@ -2167,7 +2177,9 @@ class PlayState extends MusicBeatState
 		}
 		ratings.ratingPopup(daRating, combo, note.noteStyle);
 
+		#if desktop
 		changePresence(NORMAL(true, false));
+		#end
 	}
 
 	function onStrumlineNoteSpawn(note:Note)
@@ -2316,7 +2328,9 @@ class PlayState extends MusicBeatState
 		totalPlayed += 1;
 		accuracy = totalNotesHit / totalPlayed * 100;
 
+		#if desktop
 		changePresence(NORMAL(true, false));
+		#end
 	}
 	
 	/**
@@ -2334,7 +2348,9 @@ class PlayState extends MusicBeatState
 		SoundController.music.stop();
 
 		removeSignals();
+		#if desktop
 		changePresence(GAMEOVER);
+		#end
 
 		var event = new ScriptEvent(GAME_OVER, true);
 		dispatchEvent(event);
@@ -2486,6 +2502,7 @@ class PlayState extends MusicBeatState
 	 * Changes the Discord Rich Presence based on a specific type.
 	 * @param type The type to change it based off.
 	 */
+	#if desktop
 	function changePresence(type:api.Discord.RPCType):Void
 	{
 		if (currentChart == null)
@@ -2516,6 +2533,7 @@ class PlayState extends MusicBeatState
 				DiscordClient.changePresence(details, state, smallImageKey, hasStartTimestamp, endTimestamp, largeImageKey);
 		}
 	}
+	#end
 
 	/**
 	 * Handles the singing for an opponent character.

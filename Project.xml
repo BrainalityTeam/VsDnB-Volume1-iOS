@@ -132,15 +132,17 @@
 	<haxeflag name="--macro" value="include('util')" />
 
 	<section if="android">
-		<config>
-			<!--Gradle-->
-			<!--<android gradle-version="7.4.2" gradle-plugin="7.3.1" />--> <!-- ENABLE THIS IF YOU HAVE ISSUES AT COMPILE -->
+    	<config>
+        	<!-- Gradle -->
+        	<android gradle-version="7.4.2" gradle-plugin="7.3.1"/>
 
-			<!--Target SDK-->
-			<android min-sdk-version="16" target-sdk-version="29" max-sdk-version="33" if="${lime &lt; 8.1.0}"/>
-            </config>
+        	<!-- Compile SDK platform (must exist in SDK) -->
+        	<android platform="android-30"/>
+
+        	<!-- Target SDK version for your app -->
+        	<android min-sdk-version="16" target-sdk-version="29" max-sdk-version="33"/>
+    	</config>
 	</section>
-	
 
 	<!-- _________________________________ Custom _______________________________ -->
 

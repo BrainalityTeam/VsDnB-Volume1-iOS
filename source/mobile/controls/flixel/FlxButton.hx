@@ -1,4 +1,4 @@
-package mobile.flixel;
+package mobile.controls.flixel;
 
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -387,7 +387,7 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite implements IFlxInput
 	function checkInput(pointer:FlxPointer, input:IFlxInput, justPressedPosition:FlxPoint, camera:FlxCamera):Bool
 	{
 		if (maxInputMovement != Math.POSITIVE_INFINITY
-			&& justPressedPosition.distanceTo(pointer.getScreenPosition(FlxPoint.weak())) > maxInputMovement
+			&& justPressedPosition.distanceTo(pointer.getViewPosition(FlxPoint.weak())) > maxInputMovement
 			&& input == currentInput)
 		{
 			currentInput = null;

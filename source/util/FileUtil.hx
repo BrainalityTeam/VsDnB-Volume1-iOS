@@ -9,6 +9,9 @@ import openfl.utils.Assets;
 #if sys
 import sys.FileSystem;
 #end
+#if mobile
+import util.SUtil;
+#end
 
 /**
  * A utility to help provide functions relating to the file explorer, and general file manipulation. 
@@ -47,14 +50,23 @@ class FileUtil
     
     /**
      * Creates a new directory a specified 'path', will make a new directory if one isn't made already.
+	 * Variable 'fullPath' detects if you are on android and adds the storage directory to the path.
      * @param path The path to create a directory in.
      */
     public static function createDirectory(path:String)
-    {
-        if (!FileSystem.exists(path)) {
-            FileSystem.createDirectory(path);
-        }
-    }
+	{
+    	var fullPath:String;
+
+    	#if android
+    	fullPath = SUtil.getStorageDirectory() + path;
+    	#else
+    	fullPath = path;
+    	#end
+
+    	if (!FileSystem.exists(fullPath)) {
+        	FileSystem.createDirectory(fullPath);
+    	}
+	}
 
     /**
      * Opens a file at the specified 'path', works on all platforms.

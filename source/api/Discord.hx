@@ -1,5 +1,6 @@
 package api;
 
+#if desktop
 import Sys;
 import flixel.util.FlxStringUtil;
 import hxdiscord_rpc.Discord;
@@ -344,3 +345,4 @@ private final class DiscordPresence
 		return cast(__presence.endTimestamp = value, Int);
 	}
 }
+#end

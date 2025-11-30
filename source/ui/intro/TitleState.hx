@@ -144,8 +144,13 @@ class TitleState extends MusicBeatState
 			#end
 		}
 
-		if (FlxG.mobile && FlxG.touches.justReleased.length > 0)
-			pressedEnter = true;
+		#if mobile
+		for (touch in FlxG.touches.list)
+		{
+			if (touch.justPressed)
+				pressedEnter = true;
+		}
+		#end
 
 		if (pressEnter != null && pressedEnter && !transitioning)
 		{

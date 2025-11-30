@@ -91,22 +91,6 @@ class MusicBeatSubstate extends ScriptEventDispatchSubState
 	}
 	#end
 
-	override function destroy():Void
-	{
-		#if mobileC
-		if (trackedInputsVirtualPad.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
-		#end
-
-		super.destroy();
-
-		#if mobileC
-		if (virtualPad != null)
-			virtualPad = FlxDestroyUtil.destroy(virtualPad);
-		#end
-	}
-
-
 	override function create()
 	{
 		addSignals();
@@ -134,7 +118,17 @@ class MusicBeatSubstate extends ScriptEventDispatchSubState
 	{
 		removeSignals();
 
+		#if mobileC
+		if (trackedInputsVirtualPad.length > 0)
+			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
+		#end
+
 		super.destroy();
+
+		#if mobileC
+		if (virtualPad != null)
+			virtualPad = FlxDestroyUtil.destroy(virtualPad);
+		#end
 	}
 
 	/**
