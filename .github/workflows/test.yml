@@ -1,7 +1,7 @@
 
 # THE FOLLOWING ACTIONS CODE IS FROM THE PSYCH ENGINE REPO: https://github.com/ShadowMario/FNF-PsychEngine/blob/main/.github/workflows/main.yml
 
-name: Build
+name: Test
 
 # Controls when the action will run.
 on:
